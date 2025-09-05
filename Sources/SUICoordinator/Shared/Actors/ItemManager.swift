@@ -44,6 +44,10 @@ actor ItemManager<T> {
         self.items = items
     }
     
+    func appendItems(_ items: [T]) {
+        self.items.append(contentsOf: items)
+    }
+    
     /// The index of the last item in the collection (count - 1). Returns 0 if empty.
     var totalItems: Int {
         guard !items.isEmpty else {
