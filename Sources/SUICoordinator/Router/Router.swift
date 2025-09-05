@@ -163,6 +163,18 @@ public class Router<Route: RouteType>: ObservableObject, RouterType {
         return await updateItems()
      }
     
+    
+    @MainActor public func setRoutes(
+        toRoutes routes: [Route],
+        animated: Bool = true
+    ) async {
+        self.animated = animated
+        await itemManager.setItems(routes)
+        return await updateItems()
+     }
+    
+    
+    
     /// Presents a view or coordinator with optional presentation style and animation.
     ///
     /// This method handles modal presentation of routes, creating sheet items and
